@@ -35,7 +35,7 @@ export const Hired = (props: HiredProps): JSX.Element => {
   async function onUserConfirm(id: string, escrowId?: string) {
     store.dispatch(showSpinner());
     setProcess(true);
-    
+
     if (!web3 && escrowId) {
       dialog.confirm({
         title: 'Connect your wallet',
@@ -61,7 +61,7 @@ export const Hired = (props: HiredProps): JSX.Element => {
     } else {
       endpoint.post.missions['{mission_id}/confirm'](id).then(onDone);
     }
-        
+
     store.dispatch(hideSpinner());
     setProcess(false);
   }
